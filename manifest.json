@@ -1,0 +1,25 @@
+{
+  "manifest_version": 3,
+  "name": "Reactio Draw figures for Overleaf",
+  "short_name": "Reactio for Overleaf",
+  "version": "0.6.3",
+  "description": "Paste Reactio Draw figures into Overleaf with their files, and edit them in Reactio Draw with a double click.",
+  "icons": { "128": "images/icon.png" },
+  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAvbrId1V4xrZ15iI5Gqw+yHm5claVWart+xLPSt20+pffdptdGXO+fSRSD1MZPoYi0ayj7BLEFDZhVvXrs5NS6JII7Cto37250OjmAaI2z9ahwmys0886QYloNcaTVggVlu+I5PImP6cDRuc5uHpsHqBorcEmcPx8FC3DtKeptoXca4bhZCG2wjKtogDoqlJJ9dbXYIe9jSuaAWr4kLX6AAgXz8XkJKvhZN2eTLbfHjadASKT7pDkLRqWL6FbDCRRnr/FRKJ7hAdlXvMuCbbLlsXtMTEFUxVg4ykoEGoYUQ7TI1nXdEbRtYKY9ai41aK8R6Np2w/vtXC4OGe2zQwW8wIDAQAB",
+  "permissions": ["nativeMessaging"],
+  "host_permissions": ["https://www.overleaf.com/*"],
+  "background": { "service_worker": "dist/background.js" },
+  "content_scripts": [
+    {
+      "matches": ["https://www.overleaf.com/project/*"],
+      "js": ["dist/content.js"],
+      "run_at": "document_idle",
+      "world": "MAIN"
+    },
+    {
+      "matches": ["https://www.overleaf.com/project/*"],
+      "js": ["dist/bridge.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}

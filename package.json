@@ -1,0 +1,26 @@
+{
+  "name": "reactio-overleaf",
+  "private": true,
+  "version": "0.6.3",
+  "description": "Paste Reactio Draw figures into Overleaf with their files.",
+  "license": "Apache-2.0",
+  "type": "module",
+  "scripts": {
+    "build": "esbuild src/content.ts src/bridge.ts src/background.ts --bundle --format=iife --target=chrome111 --outdir=dist",
+    "check": "tsc --noEmit -p . && vitest run",
+    "e2e": "esbuild test/e2e/harness.ts --bundle --format=iife --outfile=test/e2e/harness.js && node test/e2e/run.mjs test/e2e/screenshot.png && node test/e2e/run-edit.mjs && node test/e2e/run-compounds.mjs test/e2e/compounds.png && node test/e2e/run-visual.mjs test/e2e/scheme.pdf test/e2e/visual.png",
+    "host": "cd host && GOOS=darwin GOARCH=arm64 go build -trimpath -ldflags=-s -o ../dist/host/mac-arm64 . && GOOS=darwin GOARCH=amd64 go build -trimpath -ldflags=-s -o ../dist/host/mac-amd64 . && GOOS=windows GOARCH=amd64 go build -trimpath -ldflags=-s -o ../dist/host/reactio-overleaf-host.exe . && GOOS=windows GOARCH=arm64 go build -trimpath -ldflags=-s -o ../dist/host/reactio-overleaf-host-arm64.exe . && go build -o ../dist/host/linux .",
+    "package": "npm run check && npm run build && zip -r reactio-overleaf.zip manifest.json dist images LICENSE NOTICE README.md"
+  },
+  "devDependencies": {
+    "@codemirror/autocomplete": "^6.20.4",
+    "@codemirror/state": "^6.5.2",
+    "@codemirror/view": "^6.38.1",
+    "@types/chrome": "^0.3.7",
+    "esbuild": "^0.25.0",
+    "jsdom": "^26.1.0",
+    "pdfjs-dist": "^4.10.38",
+    "typescript": "^5.8.3",
+    "vitest": "^3.2.4"
+  }
+}

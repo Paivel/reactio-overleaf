@@ -1,0 +1,14 @@
+Reactio Draw figures for Overleaf
+Copyright 2026 Pavel Sakharov
+
+Licensed under the Apache License, Version 2.0 (see LICENSE).
+
+Parts of this extension are adapted from Lattice
+(https://github.com/leo1oel/lattice), Copyright 2026 Leonardo and the
+Lattice contributors, licensed under the Apache License, Version 2.0, by way
+of reactio-latex (the VS Code extension): src/lattice/*.ts, src/plan.ts and
+test/editable-figure.test.ts. Each such file says so at its top.
+
+The extension bundles PDF.js (https://github.com/mozilla/pdf.js), Copyright
+Mozilla Foundation, licensed under the Apache License, Version 2.0, to draw
+figures in the Visual editor.
