@@ -4,6 +4,8 @@ A Chrome (and Edge) extension: a figure copied in Reactio Draw with **Copy for
 LaTeX** pastes into the Overleaf editor with its files, as it does in VS Code
 with reactio-latex and in Lattice.
 
+![A Reactio Draw scheme in Overleaf: the picture with its compound numbers in the Visual editor, and the compiled PDF](docs/overleaf.png)
+
 When you paste (Cmd+V / Ctrl+V) in an Overleaf project:
 
 - the drawing (`.reactio`), its PDF and its TikZ `.tex` are uploaded to the
